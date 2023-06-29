@@ -1,1 +1,18 @@
-Teste de git
+
+Transformado uma pasta em um Repositório local:
+
+NO CMD
+
+Ultilize o CD para acessar a pasta que contem os Files
+
+rd .get /S/Q = Para ver se nãp há nenhum arquivo git
+
+git init = para iniciar a pasta como um repositório
+
+git add . (Ou o nome do file) = para adionar Files ao Repositório
+
+git commit -m "****" = para comitar o File para o repositório
+
+git push -u origin master = para fazer um push para o repositório remoto
+
+git remote add origin + link do repositório remoto no GITHUB = para adiconar um repositório remoto ao localTeste de git
