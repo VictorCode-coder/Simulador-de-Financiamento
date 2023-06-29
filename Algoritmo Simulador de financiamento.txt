@@ -1,0 +1,243 @@
+Simulador de financiamento - V 1.0
+
+Qual o objetivo: 
+Informar a pessoa, com base no valor do empréstimo que ela quer pegar, qual é o juros para esse empréstimo, qual o valor a ser pago (Empréstimo + juros), em quantas parcelas ela pode pagar esse valor(12) e qual será o valor da parcela de acordo com a sua quantidade.
+
+Inicio "Simulador de Financiamento"
+
+Var
+	valor_emp, valor_juros, valor_pgmt, valor_parcelas : real
+	qtde_parcelas, num_parcelas : inteiro
+
+
+inicioalgortimo
+	Escreva ("Bem vindo ao Simulador de Financiamento")
+	Escreval ("Informe qual é o valor do empréstimo :")
+	leia (valor_emp)
+	valor_juros <- 20
+	Escreval ("Ao valor de empréstimo solicitado, será cobrado no valor de pagamento um juros de ", valor_juros,"%")
+	valor_pgmt <- ((valor_emp * valor_juros) / 100) + valor_emp
+	Escreva ("O valor de pagamento para esse empréstimo com o juros será de ", valor_pgmt,"Reais")
+	qtde_parcelas <- 12
+	Escreval ("Esse valor pode ser dividido em até ", qtde_parcelas," parcelas, em quantas parcelas você gostaria de dividir?")
+	Leia (num_parcelas)
+	valor_parcelas <- valor_pgmt / num_parcelas
+	Escreval ("Sendo assim, com o número de parcelas escolhido, o valor de cada parcelas será de ", valor_parcelas,"Reais")
+	Escreva ("Consulta finalizada")
+
+
+Melhorias:        Versão 1.1
+
+* Limite de escolha de parcelas
+* Variação de juros
+* Renda + empréstimo liberado
+
+Melhoria (Adição de feature)
+
+1 - Liberação de valor de empréstimo em relação a renda mensal: (Add na V 1.1)
+Se (renda <= 1500) entao
+Escreva ("Você pode pegar até R$1000 reais de empréstimo")
+Senao
+Escreva ("Você pode pegar até RS2000 reais de empréstimo")
+Fimse 
+
+2 - Variação do juros: (Add na V1.1)
+Se (valor_emp <= 1500) entao
+valor_juros <- 10
+Senao
+valor_juros <- 20
+Fimse
+
+3 - Limite de escolha de parcelas: (Add na V1.1)
+Se (num_parcelas >= 1) e (num_parcelas <= 12) entao
+valor_parcelas <- valor_pgmt / num_parcelas
+Escreval ("Sendo assim, com o número de parcelas escolhido, o valor de cada parcela será de R$",valor_parcelas:5:2," Reais")
+Escreval ("Consulta finalizada")
+Senao
+Escreval ("O pegamento não pode ser divido pelo número de parcelas escolhido")
+Fimse
+
+
+                                 VERSÂO 1.1
+
+Algoritmo "Simulador e Consultor de Financiamento"
+
+Var
+
+   valor_emp, valor_juros, valor_pgmt, valor_parcelas, renda : real
+	num_parcelas, min_parc, max_parc : inteiro
+
+
+Inicio
+      Escreval ("Bem vindo ao Simulador e Consultor de Financiamento")
+      Escreval ("Para começar,me informe qual a sua renda mensal:")
+      Leia (renda)
+      Se (renda <= 1500) entao
+      Escreval ("Você pode pegar até R$1000 reais de empréstimo")
+      Senao
+      Escreval ("Você pode pegar até RS2000 reais de empréstimo")
+      Fimse
+      Escreval ("Informe qual é o valor do empréstimo:")
+      leia (valor_emp)
+      Se (valor_emp <= 1500) entao
+      valor_juros <- 10
+      Senao
+      valor_juros <- 20
+      Fimse
+      Escreval ("Ao valor de empréstimo solicitado, será cobrado no valor de pagamento um juros de", valor_juros," %")
+      valor_pgmt <- ((valor_emp * valor_juros) / 100) + valor_emp
+      Escreval ("O valor de pagamento para esse empréstimo com o juros será de", valor_pgmt," Reais")
+	   min_parc <- 1
+	   max_parc <- 12
+	   Escreval ("Esse valor pode ser dividido em até 12 parcelas, em quantas parcelas você gostaria de dividir?")
+      Leia (num_parcelas)
+      Se (num_parcelas >= 1) e (num_parcelas <= 12) entao
+	   valor_parcelas <- valor_pgmt / num_parcelas
+	   Escreval ("Sendo assim, com o número de parcelas escolhido, o valor de cada parcela será de R$",valor_parcelas:5:2," Reais")
+      Escreval ("Consulta finalizada")
+      Senao
+      Escreval ("O pegamento não pode ser divido pelo número de parcelas escolhido")
+      Fimse
+
+Fimalgoritmo
+
+
+
+Melhorias:   Versão 1.2
+
+* Limite para a escolha do valor do empréstimo
+
+Algoritmo "Simulador e Consultor de Financiamento"
+
+Var
+
+   valor_emp, valor_juros, valor_pgmt, valor_parcelas, renda : real
+	num_parcelas, min_parc, max_parc : inteiro
+
+
+Inicio
+      Escreval ("Bem vindo ao Simulador e Consultor de Financiamento")
+      Escreval ("Para começar,me informe qual a sua renda mensal:")
+      //Inicio caso a pessoa enha uma renda de 1500
+      Leia (renda)
+      Se (renda <= 1500) entao
+      Escreval ("Você pode pegar até R$1000 reais de empréstimo")
+      Escreval ("Informe qual é o valor do empréstimo:")
+      leia (valor_emp)
+      Se (valor_emp <= 1500) entao
+      valor_juros <- 10
+      Senao
+      Escreval ("Você não tem crédito para esse empréstimo")
+      Interrompa
+      Fimse
+      Escreval ("Ao valor de empréstimo solicitado, será cobrado no valor de pagamento um juros de", valor_juros," %")
+      valor_pgmt <- ((valor_emp * valor_juros) / 100) + valor_emp
+      Escreval ("O valor de pagamento para esse empréstimo com o juros será de", valor_pgmt," Reais")
+	   min_parc <- 1
+	   max_parc <- 12
+	   Escreval ("Esse valor pode ser dividido em até 12 parcelas, em quantas parcelas você gostaria de dividir?")
+      Leia (num_parcelas)
+      Se (num_parcelas >= 1) e (num_parcelas <= 12) entao
+	   valor_parcelas <- valor_pgmt / num_parcelas
+	   Escreval ("Sendo assim, com o número de parcelas escolhido, o valor de cada parcela será de R$",valor_parcelas:5:2," Reais")
+      Escreval ("Consulta finalizada")
+      Senao
+      Escreval ("O pegamento não pode ser divido pelo número de parcelas escolhido")
+      Fimse
+      //Inicio do caso que a pessoa recebe mais de 1500
+      Senao
+      Escreval ("Você pode pegar até RS2000 reais de empréstimo")
+      Escreval ("Informe qual é o valor do empréstimo:")
+      leia (valor_emp)
+      Se (valor_emp <= 2000) entao
+      valor_juros <- 20
+      Senao
+      Escreval ("Você não tem crédito para esse empréstimo")
+      Fimse
+      Escreval ("Ao valor de empréstimo solicitado, será cobrado no valor de pagamento um juros de", valor_juros," %")
+      valor_pgmt <- ((valor_emp * valor_juros) / 100) + valor_emp
+      Escreval ("O valor de pagamento para esse empréstimo com o juros será de", valor_pgmt," Reais")
+	   min_parc <- 1
+	   max_parc <- 12
+	   Escreval ("Esse valor pode ser dividido em até 12 parcelas, em quantas parcelas você gostaria de dividir?")
+      Leia (num_parcelas)
+      Se (num_parcelas >= 1) e (num_parcelas <= 12) entao
+	   valor_parcelas <- valor_pgmt / num_parcelas
+	   Escreval ("Sendo assim, com o número de parcelas escolhido, o valor de cada parcela será de R$",valor_parcelas:5:2," Reais")
+      Escreval ("Consulta finalizada")
+      Senao
+      Escreval ("O pegamento não pode ser divido pelo número de parcelas escolhido")
+      Fimse
+      Fimse
+
+
+Fimalgoritmo
+
+
+
+
+
+
+
+
+
+
+V2.0 BUILDING
+
+Algoritmo "Simulador e Consultor de Financiamento"
+
+Var
+   operacao : caractere
+   renda_consulta, valor_emp : real
+   renda : inteiro
+
+
+Inicio
+      Escreval ("--------------------------------------------------------")
+      Escreval ("                Bem vindo ao Banco Kalils")
+      Escreval ("--------------------------------------------------------")
+      Escreval ("Descrição: Aqui oferecemos empréstimos de acordo com o seu crédito")
+      Escreval ("--------------------------------------------------------")
+      Escreval ("                          MENU")
+      Escreval ("--------------------------------------------------------")
+      Escreval ("[1] Simular empréstimo")
+      Escreval ("[2] Consultar crédito")
+      Escreval ("[3] Cancelar")
+      Leia (operacao)
+      Escolha (operacao)
+      Caso "1"
+              Escreva ("Para começar,me informe qual a sua renda mensal:")
+              Leia (renda)
+              Escolha (renda)
+              Caso renda <= 1500
+                   Escreval ("Você pode pegar até R$1000 reais de empréstimo")
+                   Escreval ("Informe qual é o valor do empréstimo:")
+                   Leia (valor_emp)
+                   Enquanto (valor_emp > 1000) faca
+                            Escreval ("Valor inisponível, informe um valor disponível")
+                            Escreval ("Informe qual é o valor do empréstimo:")
+                            Leia (valor_emp)
+                   Fimenquanto
+              Fimescolha
+      Caso "2"
+           Escreva ("Informe a sua renda mensal:")
+           Leia (renda_consulta)
+           Se (renda_consulta <= 1500) entao
+              Escreval ("Você possui um crédito de R$1000,00 para empréstimo")
+              Escreval ("Consulta finalizada!")
+           Senao
+              Escreval ("Você possui um crédito de R$2000,00 para empréstimo.")
+              Escreval ("Consulta finalizada!")
+           Fimse
+      Caso "3"
+           Escreval ("Fim do atendimento, Adeus!")
+      Fimescolha
+
+
+Fimalgoritmo
+
+
+
+
+ 
+	
