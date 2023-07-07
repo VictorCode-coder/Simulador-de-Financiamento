@@ -1,7 +1,7 @@
 # Simulador-de-Financiamento
 Projeto desenvolvido no Portugol com a finalidade de exercitar meus conhecimentos em programação.
 
-Nós somos o Banco Kalils
+Nós Somos o Banco Kalils
 
 Nosso objetivo é trazer inovação e praticidade para a forma com que você faz empréstimos em seu dia a dia.
 
